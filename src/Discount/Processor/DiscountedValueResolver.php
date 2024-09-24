@@ -15,9 +15,9 @@ trait DiscountedValueResolver
 
         switch (true) {
             case ApplyType::PERCENT === $applyType:
-                return $referenceValue * $discount->getDiscountValue() / 100;
+                return round($referenceValue * $discount->getDiscountValue() / 100, 2);
             case ApplyType::FIXED === $applyType:
-                return (float) max(0.0, $referenceValue - $discount->getDiscountValue() / 100);
+                return round((float) max(0.0, $referenceValue - $discount->getDiscountValue() / 100), 2);
             default:
                 throw new \LogicException(sprintf('Only percent and fixed are supported for now'));
         }
