@@ -44,7 +44,7 @@ ______
 - `cd` into the project dir then run the following:
 
 ```shell
-docker-compose up -d&&docker-compose exec --user=root app composer install
+docker-compose up -d&&docker-compose exec app composer install
 ```
 
 - cache and unit tests (copy all of it):
