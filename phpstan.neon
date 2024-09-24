@@ -1,0 +1,18 @@
+parameters:
+    inferPrivatePropertyTypeFromConstructor: true
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    excludePaths:
+    level: 5
+    symfony:
+        container_xml_path: '%rootDir%/../../../var/cache/dev/App_KernelDevDebugContainer.xml'
+
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+
+
+
+
+
