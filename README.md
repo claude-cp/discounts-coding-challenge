@@ -40,4 +40,20 @@
 ![alt text](example-order-3.png "Title")
 
 ______
-### How to run
+## How to run
+- `cd` into the project dir then run the following:
+
+```shell
+docker-compose up -d&&docker-compose exec --user=root app composer install
+```
+
+- cache and unit tests (copy all of it):
+```shell
+docker-compose exec app bin/console cache:warmup --env dev &&
+docker-compose exec app vendor/bin/phpstan analyse src/ tests/ --verbose --memory-limit=500m &&
+docker-compose exec app vendor/bin/phpunit --verbose
+```
+
+### To access endpoints
+- POST http://localhost:8000/order-discounts/apply
+  - and use the JSON inputs from the directory [example-orders-with-floats](./example-orders-with-floats/)
