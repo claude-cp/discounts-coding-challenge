@@ -1,0 +1,46 @@
+services:
+    app:
+        # built from the custom ./docker/php/Dockerfile and then tagged and pushed to docker hub
+        image: plaphset/cp-php8.3-apache-dev
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www/html:rw,cached
+            - ./var:/var/www/html/var:delegated
+            - ./vendor:/var/www/html/vendor:delegated
+            - ./docker/dev/apache-vhost.conf:/etc/apache2/sites-available/000-default.conf:ro
+            - ./docker/dev/php-overrides.ini:/usr/local/etc/php/conf.d/zzz-overrides.ini:ro
+        working_dir: /var/www/html
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "200k"
+                max-file: "10"
+        environment:
+            COMPOSER_ALLOW_SUPERUSER: 1
+            COMPOSER_MEMORY_LIMIT: -1
+
+#    mysql:
+#        image: mysql:5.7
+#        platform: linux/x86_64
+#        ports:
+#            - "3306:3306"
+#        volumes:
+#            - ./docker/dev/mysqld-innodb.cnf:/etc/mysql/mysql.conf.d/mysqld-innodb.cnf:ro
+#            - db1-data:/var/lib/mysql:delegated
+#        logging:
+#            driver: "json-file"
+#            options:
+#                max-size: "200k"
+#                max-file: "10"
+#        environment:
+#            MYSQL_DATABASE: well_well_well
+#            MYSQL_USER: well_well_well
+#            MYSQL_PASSWORD: well_well_well
+#            MYSQL_ROOT_PASSWORD: root
+#        depends_on:
+#            - app
+#
+#volumes:
+#    db1-data:
+
