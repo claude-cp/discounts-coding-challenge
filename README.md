@@ -47,7 +47,7 @@ ______
 docker-compose up -d&&docker-compose exec app composer install
 ```
 
-- cache and unit tests (copy all of it):
+- copy all of it (for cache and code style and unit tests):
 ```shell
 docker-compose exec app bin/console cache:warmup --env dev &&
 docker-compose exec app vendor/bin/phpstan analyse src/ tests/ --verbose --memory-limit=500m &&
