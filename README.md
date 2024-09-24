@@ -30,7 +30,7 @@
 - To avoid boilerplate unnecessary for a coding challenge:
     - I wrote fake repositories for discounts & customers & products & product categories (ie there is no actual db).
     - In the example orders provided, everything is a string. I changed to ints and floats where sensible.
-    - For the "order total" discount, it would be sensible to also write an order distributor to distribute said discount on all of the items also. But I felt it's out of scope for this task, just know I considered it also.
+    - For the "order total" discount, it would be sensible to also write an order distributor to distribute said discount on all of the items also. But I felt it's out of scope for this task, just know I considered it also. I took the liberty to not write it.
 
 ### Screenshots of results (input and output)
 (if you don't have time to pull and run the code)
