@@ -1,0 +1,5 @@
+App\Model\v1\Order\OrderStatusInput:
+    properties:
+        status:
+            - Choice: { callback: [App\Entity\Enum\OrderStatus, 'getValues'] }
+            - NotBlank: ~

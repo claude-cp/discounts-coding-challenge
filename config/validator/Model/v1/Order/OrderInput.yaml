@@ -1,0 +1,17 @@
+App\Model\v1\Order\OrderInput:
+    constraints:
+        - App\Validator\Constraint\ItemsExist: { groups: ['create'] }
+        - App\Validator\Constraint\CustomerExists: { groups: ['create'] }
+
+    properties:
+        items:
+            - NotBlank: { groups: ['create'] }
+            - Count:
+                min: 1
+                groups: ['create']
+
+        deliveryAddress:
+            - NotBlank: { groups: ['create'] }
+
+        customerId:
+            - NotBlank: { groups: ['create'] }
