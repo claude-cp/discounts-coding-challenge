@@ -1,4 +1,0 @@
-App\Model\RequestQuery\v1\Order\SearchParams:
-    properties:
-        status:
-            - Choice: { callback: [App\Entity\Enum\OrderStatus, 'getValues'] }
