@@ -17,7 +17,7 @@
 
 - **A. I wanted to make the discounts very flexible, modular, and scalable**:
     - This means that they can be percent or fixed relative to either an item, or the order.
-    - I wanted a way to easily add new logic / quirks to discounts, so for the configuration, I used a flexible array to add as many keys as we want, without having to change db structure.
+    - I wanted a way to easily add new logic / quirks to discounts, so for the configuration, I used a flexible array to add as many keys as we want, without having to change db structure. This configuration in fact should ideally become an elastic object and well thought flexible structure (and basic booleans where possible) to improve searchability / long-term performance, etc.
     - Each discount has a factory and validates this modular "configuration" array as needed, for each type of discount.
     - I added priority **on the discount entity**, not on the discount **processors**. This means that different discount types can be ordered and applied arbitrarily, even like so: [A, B, B, A, C, A, B]
 - **B. The validations for creating discounts (each with its own discount factory), are also modular**:
